@@ -31,7 +31,7 @@ int main()
 
     //surface area of bigger cube
     int s1;
-    s1=6*n*n;
+    s1=6*cbrt(n)*cbrt(n);
     printf("\nSurface area of the bigger cube = %d",s1);
 
     //Surface area after removing one small cube from each corner
