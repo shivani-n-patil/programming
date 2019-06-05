@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main()
+{
+
+  int k;
+  printf("\nEnter the value of number of digits of the number \n k =  ");
+  scanf("%d",&k);
+
+  //input k digit number
+  int num;
+  printf("\nEnter %d digit number \n number = ",k);
+  scanf("%d",&num);
+  int onum=num;//store copy of entered original value
+
+  //check if entered number is of k digit
+  int i,count=0;
+
+  int numt=num;
+  while(numt!=0)
+  {
+      numt=numt/10;
+      count++;
+  }
+  printf("count=%d",count);
+
+    int c0,c5,c9,c2,c6,c8;//to count number of 0,5,9,2,6,8
+    //intialise all counts to zero
+    c0=0;
+    c5=0;
+    c9=0;
+    c2=0;
+    c6=0;
+    c8=0;
+
+
+    int digit[k];
+
+    if(count==k)
+    {
+        //entered number is of k digits
+
+
+        //storing digits of number separately
+        for(i=0;i<k;i++)
+        {
+            digit[i]=num%10;
+            printf("digit[%d]=%d",i,digit[i]);
+            num=num/10;
+            if(digit[i]==0)
+                c0++;
+            else if(digit[i]==5)
+                c5++;
+            else if(digit[i]==9)
+                c9++;
+            else if(digit[i]==2)
+                c2++;
+            else if(digit[i]==6)
+                c6++;
+            else if(digit[i]==8)
+                c8++;
+        }
+    }
+    else
+    {
+        printf("\nentered number is not of %d digits",k);
+        exit(0);
+    }
+
+
+     float p1,p2;//to store probability value
+        p1=1-((c0+c5+c9)/count);
+        printf("\nprobability that the number %d doesnot contain 0,5,9 is\n %f",onum,p1);
+        p2=1-((c0+c5+c9+c2+c6+c8)/count);
+        printf("\nprobability that the number %d doesnot contain 0,5,9 in set of digits d = { 0 , 1 , 3 , 4 , 5 , 7 , 9 } is\n %f",onum,p2);
+}
