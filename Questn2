@@ -39,7 +39,7 @@ int main()
     }
 
     //checking for existance of given point on the line
-    float xp,yp,mp;
+    float xp,yp;
     printf("\nEnter x co-ordinate xp = ");
     scanf("%f",&xp);
     printf("\nEnter y co-ordinate yp = ");
